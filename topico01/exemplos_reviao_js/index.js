@@ -4,6 +4,7 @@ import { stringView } from "./modules/stringExemplos.js";
 import functions from "./modules/js_fnc_arrow.js";
 import arrays from "./modules/js_arrays.js";
 import iteracoesArray from "./modules/js_iter_array.js";
+import objects from "./modules/iter_objects.js";
 
 
 console.log("Exemplo 01 - TIPOS EM ECMASCRIPT")
@@ -23,5 +24,6 @@ console.log("Exemplo 03 - LET E CONST EM ECMASCRIPT");
 //stringView();
 //functions();
 //arrays();
-iteracoesArray();
+//iteracoesArray();
+objects();
 
