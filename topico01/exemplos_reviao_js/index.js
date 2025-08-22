@@ -2,6 +2,7 @@ import { exemplosConst, exemplosLet } from "./modules/letConstExemplos.js"
 import numTypesExamples from "./modules/numTypes.js"
 import { stringView } from "./modules/stringExemplos.js";
 import functions from "./modules/js_fnc_arrow.js";
+import arrays from "./modules/js_arrays.js";
 
 
 console.log("Exemplo 01 - TIPOS EM ECMASCRIPT")
@@ -19,5 +20,6 @@ console.log("Exemplo 03 - LET E CONST EM ECMASCRIPT");
 //exemplosLet();
 //exemplosConst();
 //stringView();
-functions();
+//functions();
+arrays();
 
