@@ -3,6 +3,7 @@ import numTypesExamples from "./modules/numTypes.js"
 import { stringView } from "./modules/stringExemplos.js";
 import functions from "./modules/js_fnc_arrow.js";
 import arrays from "./modules/js_arrays.js";
+import iteracoesArray from "./modules/js_iter_array.js";
 
 
 console.log("Exemplo 01 - TIPOS EM ECMASCRIPT")
@@ -21,5 +22,6 @@ console.log("Exemplo 03 - LET E CONST EM ECMASCRIPT");
 //exemplosConst();
 //stringView();
 //functions();
-arrays();
+//arrays();
+iteracoesArray();
 
