@@ -1,6 +1,7 @@
 import { exemploFilter, exemploFind, exemploFor, exemploForeach, exemploForeachAnn, exemploMap, exemploReduce } from "./modules/exemploArrayIterations.js";
 import exemploArraysFun from "./modules/exemploArraysFun.js";
 import pot, { Person, Person2, Person3, pow, pow2 } from "./modules/exemploFuncArrowFun.js";
+import { exemploString } from "./modules/exemploString.js";
 import { exemplosConst, exemplosLet } from "./modules/letConstExemplos.js"
 import numTypesExamples from "./modules/numTypes.js"
 
@@ -51,11 +52,12 @@ exemploArraysFun()
 
 console.log("Exemplo 06 - EXEMPLOS MAIS METODOS DE ARRAYS");
 
-exemploFor()
-exemploForeach();
-exemploForeachAnn();
-exemploFind();
-exemploFilter();
-exemploMap();
-exemploReduce();
+// exemploFor()
+// exemploForeach();
+// exemploForeachAnn();
+// exemploFind();
+// exemploFilter();
+// exemploMap();
+// exemploReduce();
+exemploString();
 
