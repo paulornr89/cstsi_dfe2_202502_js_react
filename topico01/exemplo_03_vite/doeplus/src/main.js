@@ -1,39 +1,23 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
-import mainCadastro from './mainCadastro.js'
+// src/main.js
 
-// document.querySelector('#app').innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `
+import './style.css';
+import { router } from './router.js';
 
-// setupCounter(document.querySelector('#counter'))
+function navigate(path) {
+  window.history.pushState({}, '', path);
+  router();
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  const path = window.location.pathname;
-
-  if (path.endsWith("/menus/cadastroUsuario.html")) {
-    mainCadastro();
+// Captura cliques em links para navegar via SPA
+window.addEventListener('click', e => {
+  if (e.target.matches('a')) {
+    e.preventDefault();
+    navigate(e.target.href);
   }
-
-  if (path.endsWith("/menu/login.html")) {
-    //mainLogin();
-  }
-
-  // você pode ir adicionando if/else para outras páginas
 });
+
+// Roda o roteador quando o usuário navega pelo histórico (botões voltar/avançar do navegador)
+window.addEventListener('popstate', router);
+
+// Roda o roteador no carregamento inicial da página
+window.addEventListener('DOMContentLoaded', router);

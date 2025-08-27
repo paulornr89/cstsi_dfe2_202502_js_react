@@ -1,4 +1,119 @@
-export default function mainCadastro() {
+export function render() {
+    return `
+        <form class="cadastro" action="cadastrar" method="post">
+            <div class="tituloCadastro titulo">
+                <a target="_self" href="/" class="voltarCadastro"><img src="../../public/images/arrowIcon.png" alt="Voltar"></a>
+                <h2 class="titulo-textoCadastro titulo-texto">Formulário de Cadastro</h2>
+                <div class="espaco-vazio"></div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" id="nome" name="nome" required/>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>E-mail:</label>
+                        <input type="text" class="form-control" id="email" name="email" required/>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label>Telefone:</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone" maxlength="15" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>CEP:</label>
+                        <input type="text" class="form-control" id="cep" name="cep" maxlength="9" required/>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="form-group">
+                        <label>Endereço:</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" readonly/>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div class="form-group">
+                        <label>Número:</label>
+                        <input type="text" class="form-control" id="numero" name="numero" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Complemento:</label>
+                        <input type="text" class="form-control" id="complemento" name="complemento"/>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Cidade:</label>
+                        <input type="text" class="form-control" id="cidade" name="cidade" required/>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <div class="form-group">
+                        <label>UF:</label>
+                        <input type="text" class="form-control" id="uf" name="uf" required/>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                       <label>Parceria será como:</label>
+                       <select class="form-control" id="parceria" name="parceria" required>
+                            <option value="">Selecione uma opção...</option>
+                            <option>Doador</option>
+                            <option>Instituição Beneficente</option>
+                       </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Tipo:</label>
+                        <div class="list-radio">
+                            <div class="radio-option">
+                                <input type="radio" id="pj" name="tipo" value="PJ" required> 
+                                <label for="pj">PJ</label>
+                            </div>
+                            <div class="radio-option">
+                                <input type="radio" id="pf" name="tipo" value="PF" required> 
+                                <label for="pf">PF</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label class="identificador">CPF/CNPJ:</label>
+                        <input type="text" class="form-control" id="cpf_cnpj" name="cpf_cnpj" maxlength="18" required/>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Senha:</label>
+                        <input type="password" class="form-control" id="senha" name="senha" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btnCancelar btn" type="reset">Cancelar</button>
+                <button class="btnSalvar btn" type="submit">Salvar</button>
+            </div>
+        </form>
+    `;
+}
+
+export default function init() {
     document.querySelector(".cadastro").onsubmit = async (e) => {
         e.preventDefault();
         try {
@@ -163,6 +278,13 @@ export default function mainCadastro() {
             document.querySelector(".identificador").textContent = "CPF/CNPJ:";
         }
     }
+
+    // Adicione um listener para o link "Voltar"
+    document.querySelector('.voltarCadastro').addEventListener('click', (e) => {
+        e.preventDefault(); // Impede o comportamento padrão do link
+        window.history.pushState({}, '', '/'); // Muda a URL para a raiz
+        window.dispatchEvent(new Event('popstate')); // Dispara um evento que o main.js pode ouvir para rodar o router
+    });
 
     function validaPreenchimento() {
         let camposVazios = false;
