@@ -1,4 +1,4 @@
-//import './style.css'
+import './style.css'
 import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
@@ -24,4 +24,16 @@ import mainCadastro from './mainCadastro.js'
 
 // setupCounter(document.querySelector('#counter'))
 
-mainCadastro();
+document.addEventListener("DOMContentLoaded", () => {
+  const path = window.location.pathname;
+
+  if (path.endsWith("/menus/cadastroUsuario.html")) {
+    mainCadastro();
+  }
+
+  if (path.endsWith("/menu/login.html")) {
+    //mainLogin();
+  }
+
+  // você pode ir adicionando if/else para outras páginas
+});
